@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Policies;
+
+use App\Models\Student;
+use App\Models\User;
+
+class StudentPolicy
+{
+    public function update(User $user, Student $student): bool
+    {
+        // الطالب يقدر يعدل بس ملفه هو
+        return $user->id === $student->user_id;
+    }
+}
